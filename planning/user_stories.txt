@@ -1,0 +1,32 @@
+As a user, I want to:
+
+Create an account
+Find what to do based on search criteria
+Filter what to do based on certain conditions
+Rank conditions on a scale of 1-5 based on my preferences and experience
+Leave comments on a What To Do
+Upvote a comment based on it's usefulness to move it closer to the top
+Edit my comment
+Delete my comment
+Add a What To Do for the community to benefit from
+
+
+BRONZE
+Create an account
+Add a What To Do for the community to benefit from
+Find what to do based on search criteria
+Leave comments on a What To Do
+Edit my comment
+Delete my comment
+Delete my What To Do
+
+SILVER
+Filter what to do based on certain conditions
+Rank conditions on a scale of 1-5 based on my preferences and experience
+Upvote a comment based on it's usefulness to move it closer to the top
+
+GOLD
+As a master admin, I want to:
+
+View all accounts
+Edit or Delete any What To Do or comment
