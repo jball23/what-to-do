@@ -1,0 +1,7 @@
+<h2>Showing {{tdIndexVM.todos.length}} What To Do's</h2>
+
+<ul>
+  <li data-ng-repeat="todo in tdIndexVM.todos">
+    <a data-ui-sref="todoShow(todo)">{{todo.title}}</a>
+  </li>
+</ul>

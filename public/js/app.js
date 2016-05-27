@@ -2,24 +2,46 @@
 
 (function(){
   angular
-    .module("whatToDo", [
+    .module("whatTodo", [
       "ui.router"
     ])
-    .config(Router);
+    .config(Router)
+    .controller("todoIndexController", todoIndexCtrl)
+    .controller("todoShowController", todoShowCtrl)
 
     Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
     function Router($stateProvider, $locationProvider, $urlRouterProvider){
       $locationProvider.html5Mode(true);
       $stateProvider
-      .state("main", {
-        url: "/",
-        template: "<h1>This Is Working</h1>"
+      .state("todoIndex", {
+        url: "/todo",
+        templateUrl: "/html/todo-index.html",
+        controller: "todoIndexController",
+        controllerAs: "tdIndexVM"
       })
-      .state("test", {
-        url: "/test",
-        template: "<h2>This is the test</h2>"
+      .state("todoShow", {
+        url: "/todo/:title",
+        templateUrl: "/html/todo-show.html",
+        controller: "todoShowController",
+        controllerAs: "tdShowVM"
       });
       $urlRouterProvider.otherwise("/");
+    }
+
+    function todoIndexCtrl(){
+      var vm = this;
+      vm.todos = [
+        {title: "Todo1"},
+        {title: "Todo2"},
+        {title: "Todo3"},
+        {title: "Todo4"}
+      ];
+    }
+
+    todoShowCtrl.$inject = ["$stateParams"]
+    function todoShowCtrl($stateParams){
+      var vm = this;
+      vm.todo = $stateParams;
     }
 
 })();
