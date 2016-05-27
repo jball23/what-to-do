@@ -2,12 +2,24 @@
 
 (function(){
   angular
-    .module("whatToDo", [])
-    .controller("IndexCtrl", IndexCtrl)
+    .module("whatToDo", [
+      "ui.router"
+    ])
+    .config(Router);
 
-    function IndexCtrl(){
-      console.log("Hello World");
-    };
-
+    Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
+    function Router($stateProvider, $locationProvider, $urlRouterProvider){
+      $locationProvider.html5Mode(true);
+      $stateProvider
+      .state("main", {
+        url: "/",
+        template: "<h1>This Is Working</h1>"
+      })
+      .state("test", {
+        url: "/test",
+        template: "<h2>This is the test</h2>"
+      });
+      $urlRouterProvider.otherwise("/");
+    }
 
 })();
