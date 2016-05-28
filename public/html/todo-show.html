@@ -1,5 +1,16 @@
 <div data-ng-if="tdShowVM.todo.title">
-  <h2>Showing todo {{tdShowVM.todo.title}}</h2>
+  <h2>{{tdShowVM.todo.title}}</h2>
+  <p>{{tdShowVM.todo.author}}</p>
+  <p>{{tdShowVM.todo.cost}}</p>
+  <p>{{tdShowVM.todo.free}}</p>
+  <p>{{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>
+  <p>{{tdShowVM.todo.outdoor}}</p>
+  <p>{{tdShowVM.todo.familyFriendly}}</p>
+  <p>{{tdShowVM.todo.rating}}</p>
+  <div data-ng-repeat="comment in tdShowVM.todo.comments">
+    <p>{{comment.author}}</p>
+    <p>{{comment.body}}</p>
+  </div>
   <input type="text" data-ng-model="tdShowVM.todo.title" />
   <button type="button" data-ng-click="tdShowVM.update()">Update</button>
   <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
