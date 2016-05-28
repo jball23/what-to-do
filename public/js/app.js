@@ -32,7 +32,9 @@
 
     todoFactoryFunc.$inject = ["$resource"]
     function todoFactoryFunc($resource){
-      var Todo = $resource("/api/todos/:title");
+      var Todo = $resource("/api/todos/:title", {}, {
+        update: {method: "PATCH"}
+      });
       return Todo;
     }
 
@@ -54,6 +56,11 @@
       vm.delete = function(){
         Todo.remove($stateParams, function(){
           $state.go("todoIndex");
+        });
+      }
+      vm.update = function(){
+        Todo.update($stateParams, vm.todo, function(response){
+          $state.go("todoShow", response);
         });
       }
     };

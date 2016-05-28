@@ -26,6 +26,12 @@ app.delete("/api/todos/:title", function(req, res){
   });
 });
 
+app.patch("/api/todos/:title", function(req, res){
+  Todo.findOneAndUpdate(req.params, req.body, {new: true}).then(function(todo){
+    res.json(todo);
+  });
+});
+
 app.post("/api/todos", function(req, res){
   Todo.create(req.body).then(function(todo){
     res.json(todo);
