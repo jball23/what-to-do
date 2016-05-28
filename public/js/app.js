@@ -47,10 +47,15 @@
       }
     }
 
-    todoShowCtrl.$inject = ["$stateParams", "Todo"]
-    function todoShowCtrl($stateParams, Todo){
+    todoShowCtrl.$inject = ["$stateParams", "Todo", "$state"]
+    function todoShowCtrl($stateParams, Todo, $state){
       var vm = this;
       vm.todo = Todo.get($stateParams);
-    }
+      vm.delete = function(){
+        Todo.remove($stateParams, function(){
+          $state.go("todoIndex");
+        });
+      }
+    };
 
 })();

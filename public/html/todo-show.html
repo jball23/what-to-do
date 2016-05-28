@@ -1,5 +1,6 @@
 <div data-ng-if="tdShowVM.todo.title">
   <h2>Showing todo {{tdShowVM.todo.title}}</h2>
+  <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
 </div>
 <div data-ng-if="!tdShowVM.todo.title">
   <h2>Sorry, there's nothing to do here!</h2>

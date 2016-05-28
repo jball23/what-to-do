@@ -20,6 +20,12 @@ app.get("/api/todos/:title", function(req, res){
   });
 });
 
+app.delete("/api/todos/:title", function(req, res){
+  Todo.findOneAndRemove(req.params).then(function(){
+    res.json({success: true});
+  });
+});
+
 app.post("/api/todos", function(req, res){
   Todo.create(req.body).then(function(todo){
     res.json(todo);
