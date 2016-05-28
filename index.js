@@ -1,16 +1,16 @@
 var express = require("express");
+var mongoose = require("./db/connection");
 var app = express();
+
+var Todo = mongoose.model("Todo");
 
 app.use("/", express.static("public"));
 
 app.get("/api/todos", function(req, res){
-  res.json([
-    {title: "Todo1"},
-    {title: "Todo2"},
-    {title: "Todo3"},
-    {title: "Todo4"}
-  ]);
-})
+  Todo.find().then(function(todos){
+    res.json(todos);
+  });
+});
 
 app.get("/*", function(req, res){
   res.sendFile(__dirname + "/public/index.html");
