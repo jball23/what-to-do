@@ -7,7 +7,7 @@
       "ngResource"
     ])
     .config(Router)
-    .factory("TodoFactory", todoFactoryFunc)
+    .factory("Todo", todoFactoryFunc)
     .controller("todoIndexController", todoIndexCtrl)
     .controller("todoShowController", todoShowCtrl)
 
@@ -36,10 +36,15 @@
       return Todo;
     }
 
-    todoIndexCtrl.$inject = ["TodoFactory"];
-    function todoIndexCtrl(TodoFactory){
+    todoIndexCtrl.$inject = ["Todo"];
+    function todoIndexCtrl(Todo){
       var vm = this;
-      vm.todos = TodoFactory.query();
+      vm.todos = Todo.query();
+      vm.create = function(){
+        Todo.save(vm.newTodo, function(response){
+          vm.todos.push(response);
+        })
+      }
     }
 
     todoShowCtrl.$inject = ["$stateParams"]

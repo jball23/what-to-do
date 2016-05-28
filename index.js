@@ -1,9 +1,11 @@
 var express = require("express");
 var mongoose = require("./db/connection");
+var parser = require("body-parser");
 var app = express();
 
 var Todo = mongoose.model("Todo");
 
+app.use(parser.json({urlencoded: true}));
 app.use("/", express.static("public"));
 
 app.get("/api/todos", function(req, res){
@@ -11,6 +13,12 @@ app.get("/api/todos", function(req, res){
     res.json(todos);
   });
 });
+
+app.post("/api/todos", function(req, res){
+  Todo.create(req.body).then(function(todo){
+    res.json(todo);
+  })
+})
 
 app.get("/*", function(req, res){
   res.sendFile(__dirname + "/public/index.html");
