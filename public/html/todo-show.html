@@ -1,19 +1,29 @@
-<div data-ng-if="tdShowVM.todo.title">
-  <h2>{{tdShowVM.todo.title}}</h2>
-  <p>{{tdShowVM.todo.author}}</p>
-  <p>{{tdShowVM.todo.cost}}</p>
-  <p>{{tdShowVM.todo.free}}</p>
-  <p>{{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>
-  <p>{{tdShowVM.todo.outdoor}}</p>
-  <p>{{tdShowVM.todo.familyFriendly}}</p>
-  <p>{{tdShowVM.todo.rating}}</p>
-  <div data-ng-repeat="comment in tdShowVM.todo.comments">
-    <p>{{comment.author}}</p>
-    <p>{{comment.body}}</p>
+<div class="show-wrapper">
+  <div class="todo-wrapper" data-ng-if="tdShowVM.todo.title">
+    <h2>{{tdShowVM.todo.title}}</h2>
+    <p>By: {{tdShowVM.todo.author}}</p>
+    <p>Estimated Cost: ${{tdShowVM.todo.cost}}</p>
+    <p>Free: {{tdShowVM.todo.free}}</p>
+    <p>Location: {{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>
+    <p>Outdoors: {{tdShowVM.todo.outdoor}}</p>
+    <p>Good For Children: {{tdShowVM.todo.familyFriendly}}</p>
+    <p>Enjoyment Meter: {{tdShowVM.todo.rating}} / 5</p>
+    <div data-ng-repeat="comment in tdShowVM.todo.comments">
+      <p>{{comment.author}}</p>
+      <p>{{comment.body}}</p>
+    </div>
+    <p><input type="text" data-ng-model="tdShowVM.todo.title" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.author" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.body" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.cost" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.location.address" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.location.city" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.location.state" /></p>
+    <p><input type="text" data-ng-model="tdShowVM.todo.location.zipcode" /></p>
+    <button type="button" data-ng-click="tdShowVM.update()">Update</button>
+    <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
   </div>
-  <input type="text" data-ng-model="tdShowVM.todo.title" />
-  <button type="button" data-ng-click="tdShowVM.update()">Update</button>
-  <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
+  <div id="map">This is where the map will go</div>
 </div>
 <div data-ng-if="!tdShowVM.todo.title">
   <h2>Sorry, there's nothing to do here!</h2>

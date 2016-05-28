@@ -6,5 +6,12 @@
   </li>
 </ul>
 
-<input type="text" data-ng-model="tdIndexVM.newTodo.title" />
-<button type="button" data-ng-click="tdIndexVM.create()">Create What To Do</button>
+<p><input type="text" placeholder="Enter a title for your idea" data-ng-model="tdIndexVM.newTodo.title" /></p>
+<p><input type="text" placeholder="Enter your name" data-ng-model="tdIndexVM.newTodo.author" /></p>
+<p><input type="text" placeholder="Tell us all about your idea..." data-ng-model="tdIndexVM.newTodo.body" /></p>
+<p><input type="text" placeholder="How much should we expect to pay?" data-ng-model="tdIndexVM.newTodo.cost" /></p>
+<p><input type="text" placeholder="Address" data-ng-model="tdIndexVM.newTodo.location.address" /></p>
+<p><input type="text" placeholder="City" data-ng-model="tdIndexVM.newTodo.location.city" /></p>
+<p><input type="text" placeholder="State" data-ng-model="tdIndexVM.newTodo.location.state" /></p>
+<p><input type="text" placeholder="Zipcode" data-ng-model="tdIndexVM.newTodo.location.zipcode" /></p>
+<p><button type="button" data-ng-click="tdIndexVM.create()">Add Your Idea</button></p>
