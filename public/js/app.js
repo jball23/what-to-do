@@ -32,7 +32,7 @@
 
     todoFactoryFunc.$inject = ["$resource"]
     function todoFactoryFunc($resource){
-      var Todo = $resource("/api/todos");
+      var Todo = $resource("/api/todos/:title");
       return Todo;
     }
 
@@ -47,10 +47,10 @@
       }
     }
 
-    todoShowCtrl.$inject = ["$stateParams"]
-    function todoShowCtrl($stateParams){
+    todoShowCtrl.$inject = ["$stateParams", "Todo"]
+    function todoShowCtrl($stateParams, Todo){
       var vm = this;
-      vm.todo = $stateParams;
+      vm.todo = Todo.get($stateParams);
     }
 
 })();

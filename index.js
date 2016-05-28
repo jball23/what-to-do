@@ -14,6 +14,12 @@ app.get("/api/todos", function(req, res){
   });
 });
 
+app.get("/api/todos/:title", function(req, res){
+  Todo.findOne(req.params).then(function(todo){
+    res.json(todo);
+  });
+});
+
 app.post("/api/todos", function(req, res){
   Todo.create(req.body).then(function(todo){
     res.json(todo);
