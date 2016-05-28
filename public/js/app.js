@@ -3,9 +3,11 @@
 (function(){
   angular
     .module("whatTodo", [
-      "ui.router"
+      "ui.router",
+      "ngResource"
     ])
     .config(Router)
+    .factory("TodoFactory", todoFactoryFunc)
     .controller("todoIndexController", todoIndexCtrl)
     .controller("todoShowController", todoShowCtrl)
 
@@ -28,14 +30,16 @@
       $urlRouterProvider.otherwise("/");
     }
 
-    function todoIndexCtrl(){
+    todoFactoryFunc.$inject = ["$resource"]
+    function todoFactoryFunc($resource){
+      var Todo = $resource("/api/todos");
+      return Todo;
+    }
+
+    todoIndexCtrl.$inject = ["TodoFactory"];
+    function todoIndexCtrl(TodoFactory){
       var vm = this;
-      vm.todos = [
-        {title: "Todo1"},
-        {title: "Todo2"},
-        {title: "Todo3"},
-        {title: "Todo4"}
-      ];
+      vm.todos = TodoFactory.query();
     }
 
     todoShowCtrl.$inject = ["$stateParams"]
