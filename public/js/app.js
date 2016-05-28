@@ -63,6 +63,16 @@
           $state.go("todoShow", response);
         });
       }
+
+      var map;
+      vm.initMap = function(){
+
+          var mapOptions = {
+            zoom: 8,
+            center: {lat: 38.889931, lng: -77.009003}
+          };
+          map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      };  
     };
 
 })();

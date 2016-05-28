@@ -53,11 +53,13 @@ html {
 body {
   font-family: Helvetica;
   width: 100%;
+  font-size: 1em;
 }
 
 .show-wrapper {
   width: 100%;
   display: inline-block;
+  margin: 20px;
 }
 
 .todo-wrapper {
@@ -67,7 +69,12 @@ body {
 
 #map {
   width: 50%;
-  height: 100%;
-  background-color: green;
+  height: 400px;
   display: inline-block;
+  vertical-align: top;
+}
+
+input {
+  padding: 7px;
+  font-size: 1em;
 }
