@@ -1,10 +1,12 @@
-<div class="show-wrapper">
-  <div class="todo-wrapper" data-ng-if="tdShowVM.todo.title">
-    <h2>{{tdShowVM.todo.title}}</h2>
+<div class="show-wrapper" data-ng-if="tdShowVM.todo.title">
+  <div class="todo-title">
+    <h1>{{tdShowVM.todo.title}}</h1>
+  </div>
+  <div class="todo-wrapper">
     <p>By: {{tdShowVM.todo.author}}</p>
+    <p>{{tdShowVM.todo.body}}</p>
     <p>Estimated Cost: ${{tdShowVM.todo.cost}}</p>
     <p>Free: {{tdShowVM.todo.free}}</p>
-    <p>Location: {{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>
     <p>Outdoors: {{tdShowVM.todo.outdoor}}</p>
     <p>Good For Children: {{tdShowVM.todo.familyFriendly}}</p>
     <p>Enjoyment Meter: {{tdShowVM.todo.rating}} / 5</p>
@@ -12,18 +14,25 @@
       <p>{{comment.author}}</p>
       <p>{{comment.body}}</p>
     </div>
-    <p><input type="text" data-ng-model="tdShowVM.todo.title" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.author" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.body" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.cost" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.location.address" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.location.city" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.location.state" /></p>
-    <p><input type="text" data-ng-model="tdShowVM.todo.location.zipcode" /></p>
+    <div class="edit-todo" data-ng-show="showme">
+      <p><input type="text" data-ng-model="tdShowVM.todo.title" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.author" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.body" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.cost" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.location.address" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.location.city" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.location.state" /></p>
+      <p><input type="text" data-ng-model="tdShowVM.todo.location.zipcode" /></p>
+    </div>
+    <button type="button" data-ng-click="showme=true">Edit</button>
     <button type="button" data-ng-click="tdShowVM.update()">Update</button>
     <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
+    <button type="button" data-ng-click="tdShowVM.refresh()">Cancel</button>
   </div>
-  <div data-ng-init="tdShowVM.initMap()" id="map">This is where the map will go</div>
+  <div class="map-container">
+    <div data-ng-init="tdShowVM.initMap()" id="map"></div>
+    <p>Location: {{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>
+  </div>
 </div>
 <div data-ng-if="!tdShowVM.todo.title">
   <h2>Sorry, there's nothing to do here!</h2>

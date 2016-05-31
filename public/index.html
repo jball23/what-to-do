@@ -14,7 +14,15 @@
   <base href="/" />
 </head>
 <body data-ng-app="whatTodo">
-  <h1><a data-ui-sref="todoIndex">What To Do</a></h1>
+  <header>
+    <div class="logo">
+      <a data-ui-sref="todoIndex">What To Do</a>
+    </div>
+    <div class="menu">
+      <button type="button">Search</button>
+      <button type="button" data-ng-click="showAdd=true">Add</button>
+    </div>
+  </header>
   <div data-ui-view></div>
 </body>
 </html>
