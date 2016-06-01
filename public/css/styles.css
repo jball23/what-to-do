@@ -51,21 +51,54 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+	height: 100%;
 }
 
 body {
   font-family: Helvetica;
   width: 100%;
+	height: 100%;
   font-size: 1em;
 }
 
 header {
   display: inline-block;
   width: 100%;
+	background-color: black;
 }
 
+/**** HOMEPAGE ****/
 
-/**** INDEX ****/
+.home-container {
+	background-image: url("../images/splash.jpg");
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+	display: inline-flex;
+}
+
+.home-content {
+	margin: 200px auto;
+	text-align: center;
+}
+
+.home-content h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.home-content button {
+	border: 1px solid black;
+	padding: 20px;
+	font-size: 1.5em;
+	margin: 20px;
+	background-color: rgba(255, 255, 0, 0.5);;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/**** TODOS INDEX ****/
 
 .things-todo {
 	margin-left: 20px;
@@ -75,6 +108,13 @@ header {
   font-size: 2em;
   display: inline-block;
   margin: 20px;
+}
+
+.logo a {
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: white;
 }
 
 .menu {
@@ -148,10 +188,32 @@ h1 a {
 }
 
 .todo-wrapper {
-  width: 45%;
+  width: 50%;
   display: inline-block;
-  background-color: yellow;
+	border: 1px solid red;
   padding: 10px;
+}
+
+.todo-main {
+	width: 70%;
+	display: inline-block;
+	font-size: 1.2em;
+	line-height: 1.3em;
+}
+
+.comments {
+	font-size: 1.2em;
+	margin-top: 20px;
+}
+
+.todo-show-info {
+	width: 20%;
+	display: inline-block;
+	float: right;
+	border: 1px solid red;
+	padding: 10px;
+	line-height: 1.5em;
+	text-align: center;
 }
 
 .todo-title {
@@ -159,7 +221,7 @@ h1 a {
 }
 
 .map-container {
-  width: 50%;
+  width: 40%;
   display: inline-block;
   vertical-align: top;
   text-align: center;

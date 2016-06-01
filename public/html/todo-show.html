@@ -4,17 +4,17 @@
   </div>
   <div class="todo-wrapper">
     <div class="todo-main">
-      <p>By: {{tdShowVM.todo.author}}</p>
+      <p>Submitted By: {{tdShowVM.todo.author}}</p>
       <p>{{tdShowVM.todo.body}}</p>
     </div>
     <div class="todo-show-info">
-      <p>Enjoyment Meter: {{tdShowVM.todo.rating}} / 5</p>
+      <p>Rating: {{tdShowVM.todo.rating}} / 5</p>
       <p>Free: {{tdShowVM.todo.free}}</p>
-      <p>Estimated Cost: ${{tdShowVM.todo.cost}}</p>
+      <p>Cost: ${{tdShowVM.todo.cost}}</p>
       <p>Outdoors: {{tdShowVM.todo.outdoor}}</p>
-      <p>Good For Children: {{tdShowVM.todo.familyFriendly}}</p>
+      <p>Family Friendly: {{tdShowVM.todo.familyFriendly}}</p>
     </div>
-    <div data-ng-repeat="comment in tdShowVM.todo.comments">
+    <div class="comments" data-ng-repeat="comment in tdShowVM.todo.comments">
       <p>{{comment.author}}</p>
       <p>{{comment.body}}</p>
     </div>

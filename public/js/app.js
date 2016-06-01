@@ -10,11 +10,18 @@
     .factory("Todo", todoFactoryFunc)
     .controller("todoIndexController", todoIndexCtrl)
     .controller("todoShowController", todoShowCtrl)
+    .controller("homeController", homeCtrl)
 
     Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
     function Router($stateProvider, $locationProvider, $urlRouterProvider){
       $locationProvider.html5Mode(true);
       $stateProvider
+      .state("home", {
+        url: "/",
+        templateUrl: "html/homepage.html",
+        controller: "homeController",
+        controllerAs: "homeVM"
+      })
       .state("todoIndex", {
         url: "/todo",
         templateUrl: "/html/todo-index.html",
@@ -36,6 +43,10 @@
         update: {method: "PATCH"}
       });
       return Todo;
+    }
+
+    function homeCtrl(){
+      
     }
 
     todoIndexCtrl.$inject = ["Todo"];
