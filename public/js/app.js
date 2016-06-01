@@ -11,6 +11,7 @@
     .controller("todoIndexController", todoIndexCtrl)
     .controller("todoShowController", todoShowCtrl)
     .controller("homeController", homeCtrl)
+    .controller("todoNewController", todoNewCtrl)
 
     Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
     function Router($stateProvider, $locationProvider, $urlRouterProvider){
@@ -27,6 +28,12 @@
         templateUrl: "/html/todo-index.html",
         controller: "todoIndexController",
         controllerAs: "tdIndexVM"
+      })
+      .state("newTodo", {
+        url: "/new",
+        templateUrl: "/html/todo-new.html",
+        controller: "todoNewController",
+        controllerAs: "tdNewVM"
       })
       .state("todoShow", {
         url: "/todo/:title",
@@ -46,18 +53,25 @@
     }
 
     function homeCtrl(){
-      
+
+    }
+
+    todoIndexCtrl.$inject = ["Todo", "$state"];
+    function todoNewCtrl(Todo, $state){
+      var vm = this;
+      vm.todos = Todo.query();
+      vm.create = function(){
+        Todo.save(vm.newTodo, function(response){
+          vm.todos.push(response);
+          $state.go("todoIndex");
+        });
+      }
     }
 
     todoIndexCtrl.$inject = ["Todo"];
     function todoIndexCtrl(Todo){
       var vm = this;
       vm.todos = Todo.query();
-      vm.create = function(){
-        Todo.save(vm.newTodo, function(response){
-          vm.todos.push(response);
-        });
-      }
     };
 
     todoShowCtrl.$inject = ["$stateParams", "Todo", "$state", "$http"];

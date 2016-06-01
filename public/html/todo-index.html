@@ -1,35 +1,23 @@
-<input type="text" class="search-todos" placeholder="Search What To Do" data-ng-model="tdIndexVM.filter_on" />
+<div class="todo-index-wrapper">
 
-<div class="things-todo">
-  <h2>Here are {{tdIndexVM.todos.length}} things you can do!</h2>
-</div>
+  <div class="sort-bar">
+    <input type="text" class="search-todos" placeholder="Search What To Do" data-ng-model="tdIndexVM.filter_on" />
+  </div>
 
-<div data-ng-repeat="todo in tdIndexVM.todos | filter: tdIndexVM.filter_on">
-  <div class="each-todo">
-    <div class="todo-title-body">
-      <h2><a data-ui-sref="todoShow(todo)">{{todo.title}}</a></h2>
-      <p>{{todo.body}}</p>
-      <p><a data-ui-sref="todoShow(todo)">{{todo.comments.length}} Comments</a></p>
-    </div>
-    <div class="todo-index-info">
-      <table>
-        <tr><p>{{todo.familyFriendly}}</p></tr>
-        <tr><p>${{todo.cost}}</p></tr>
-      </table>
+  <div data-ng-repeat="todo in tdIndexVM.todos | filter: tdIndexVM.filter_on">
+    <div class="each-todo">
+      <div class="todo-title-body">
+        <h2><a data-ui-sref="todoShow(todo)">{{todo.title}}</a></h2>
+        <p>{{todo.body}}</p>
+        <p><a data-ui-sref="todoShow(todo)">{{todo.comments.length}} Comments</a></p>
+      </div>
+      <div class="todo-index-info">
+        <table>
+          <tr><p>{{todo.familyFriendly}}</p></tr>
+          <tr><p>${{todo.cost}}</p></tr>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
-
-<div class="add-todo" data-ng-show="showAdd">
-  <p><input type="text" placeholder="Enter a title for your idea" data-ng-model="tdIndexVM.newTodo.title" /></p>
-  <p><input type="text" placeholder="Enter your name" data-ng-model="tdIndexVM.newTodo.author" /></p>
-  <p><input type="text" placeholder="Tell us all about your idea..." data-ng-model="tdIndexVM.newTodo.body" /></p>
-  <p><input type="text" placeholder="How much should we expect to pay?" data-ng-model="tdIndexVM.newTodo.cost" /></p>
-  <p><input type="text" placeholder="Address" data-ng-model="tdIndexVM.newTodo.location.address" /></p>
-  <p><input type="text" placeholder="City" data-ng-model="tdIndexVM.newTodo.location.city" /></p>
-  <p><input type="text" placeholder="State" data-ng-model="tdIndexVM.newTodo.location.state" /></p>
-  <p><input type="text" placeholder="Zipcode" data-ng-model="tdIndexVM.newTodo.location.zipcode" /></p>
-  <p><button type="button" data-ng-click="tdIndexVM.create()">Add Your Idea</button></p>
-  <p><button type="button" data-ng-click="showAdd=false"; "tdIndexVM.refresh()">Cancel</button></p>
 </div>

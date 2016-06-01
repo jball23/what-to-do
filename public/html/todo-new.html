@@ -1,0 +1,16 @@
+<div class="add-todo">
+  <p><input type="text" placeholder="Enter a title for your idea" data-ng-model="tdNewVM.newTodo.title" /></p>
+  <p><input type="text" placeholder="Enter your name" data-ng-model="tdNewVM.newTodo.author" /></p>
+  <p><input type="text" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" /></p>
+  <p><input type="text" placeholder="How much should we expect to pay?" data-ng-model="tdNewVM.newTodo.cost" /></p>
+  <p>Is it family friendly?
+  <input type="radio" data-ng-value="true" data-ng-model="tdNewVM.newTodo.familyFriendly" /> Yes
+  <input type="radio" data-ng-value="false" data-ng-model="tdNewVM.newTodo.familyFriendly" /> No
+  </p>
+  <p><input type="text" placeholder="Address" data-ng-model="tdNewVM.newTodo.location.address" /></p>
+  <p><input type="text" placeholder="City" data-ng-model="tdNewVM.newTodo.location.city" /></p>
+  <p><input type="text" placeholder="State" data-ng-model="tdNewVM.newTodo.location.state" /></p>
+  <p><input type="text" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" /></p>
+  <p><button type="button" data-ng-click="tdNewVM.create()">Add Your Idea</button></p>
+  <p><button type="button" data-ng-click="tdNewVM.refresh()">Cancel</button></p>
+</div>
