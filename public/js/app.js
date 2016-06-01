@@ -30,8 +30,8 @@
       $urlRouterProvider.otherwise("/");
     }
 
-    todoFactoryFunc.$inject = ["$resource", "$http"]
-    function todoFactoryFunc($resource, $http){
+    todoFactoryFunc.$inject = ["$resource"];
+    function todoFactoryFunc($resource){
       var Todo = $resource("/api/todos/:title", {}, {
         update: {method: "PATCH"}
       });
@@ -45,14 +45,14 @@
       vm.create = function(){
         Todo.save(vm.newTodo, function(response){
           vm.todos.push(response);
-        })
+        });
       }
-    }
+    };
 
-    todoShowCtrl.$inject = ["$stateParams", "Todo", "$state", "$http"]
+    todoShowCtrl.$inject = ["$stateParams", "Todo", "$state", "$http"];
     function todoShowCtrl($stateParams, Todo, $state, $http){
       var vm = this;
-      vm.todo = Todo.get($stateParams)
+      vm.todo = Todo.get($stateParams);
       vm.map = Todo.get($stateParams).$promise.then(function(addy){
         var fullAddress = addy.location.address +" "+ addy.location.city +" "+ addy.location.state +" "+ addy.location.zipcode;
 
@@ -65,11 +65,12 @@
           method: 'GET',
           url: baseUrl + fullAddress + "&sensor=false"
         }).then(function(response){
-          console.log(response)
           var latlng = new google.maps.LatLng(response.data.results[0].geometry.location.lat, response.data.results[0].geometry.location.lng);
-          var markerInfo = response.data.results[0].formatted_address
-          console.log(latlng)
-          console.log(map)
+          var markerInfo = response.data.results[0].formatted_address;
+          myLat = response.data.results[0].geometry.location.lat;
+          myLng = response.data.results[0].geometry.location.lng;
+          console.log(myLat);
+          console.log(myLng);
           var contentString = '<div>'+ markerInfo +'</div>';
           var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -78,13 +79,15 @@
             position: latlng,
             map: map
           });
-          console.log(marker);
           marker.addListener('click', function() {
             infowindow.open(map, marker);
           });
         });
       }
+
       var map;
+      var myLat;
+      var myLng;
 
       vm.initMap = function(){
         var myLatLng = {lat: 38.889931, lng: -77.009003};
@@ -95,30 +98,26 @@
         };
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        // var marker = new google.maps.Marker({
-        //   position: myLatLng,
-        //   map: map,
-        //   title: 'Hello World!'
-        // });
+
       };
 
       vm.delete = function(){
         Todo.remove($stateParams, function(){
           $state.go("todoIndex");
         });
-      }
+      };
       vm.update = function(){
         Todo.update($stateParams, vm.todo, function(response){
           $state.go("todoShow", response);
         });
-      }
+      };
       vm.refresh = function(){
         $state.transitionTo($state.current, $stateParams, {
           reload: true,
           inherit: false,
           notify: true
         });
-      }
-    };
+      };
+    }
 
 })();
