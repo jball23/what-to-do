@@ -1,19 +1,41 @@
 <div class="show-wrapper" data-ng-if="tdShowVM.todo.title">
+
   <div class="todo-title">
     <h1>{{tdShowVM.todo.title}}</h1>
   </div>
+
   <div class="todo-wrapper">
-    <div class="todo-main">
-      <p>Submitted By: {{tdShowVM.todo.author}}</p>
+    <div class="todo-show-info">
+      <div class="todo-cost">
+        <img src="../images/money-icon.jpg" alt="cost" />
+        <p>{{tdShowVM.todo.cost}}</p>
+      </div>
+      <div class="todo-family" data-ng-if="tdShowVM.todo.familyFriendly == true">
+        <img src="../images/family-icon.jpg" alt="family friendly" />
+        <p>Family Friendly</p>
+      </div>
+      <div class="todo-family" data-ng-if="tdShowVM.todo.familyFriendly == false">
+        <img src="../images/no-family-icon.jpg" alt="not family friendly" />
+        <p>No Children</p>
+      </div>
+      <div class="todo-outdoor" data-ng-if="tdShowVM.todo.outdoor == true">
+        <img src="../images/outdoor-icon.jpg" alt="outdoor" />
+        <p>Outdoor</p>
+      </div>
+      <div class="todo-outdoor" data-ng-if="tdShowVM.todo.outdoor == !true">
+        <img src="../images/indoor-icon.jpg" alt="indoor" />
+        <p>Indoor</p>
+      </div>
+      <div class="todo-comments">
+        <img src="../images/comment-icon.jpg" alt="comments" />
+        <p>{{tdShowVM.todo.comments.length}} Comments</p>
+      </div>
+    </div>
+
+   <div class="todo-main">
       <p>{{tdShowVM.todo.body}}</p>
     </div>
-    <div class="todo-show-info">
-      <p>Rating: {{tdShowVM.todo.rating}} / 5</p>
-      <p>Free: {{tdShowVM.todo.free}}</p>
-      <p>Cost: ${{tdShowVM.todo.cost}}</p>
-      <p>Outdoors: {{tdShowVM.todo.outdoor}}</p>
-      <p>Family Friendly: {{tdShowVM.todo.familyFriendly}}</p>
-    </div>
+
     <div class="comments" data-ng-repeat="comment in tdShowVM.todo.comments">
       <p>{{comment.author}}</p>
       <p>{{comment.body}}</p>
@@ -33,6 +55,7 @@
     <button type="button" data-ng-click="tdShowVM.delete()">Delete</button>
     <button type="button" data-ng-click="tdShowVM.refresh()">Cancel</button>
   </div>
+
   <div class="map-container">
     <div data-ng-init="tdShowVM.initMap()" id="map"></div>
     <p>Location: {{tdShowVM.todo.location.address}} {{tdShowVM.todo.location.city}}, {{tdShowVM.todo.location.state}} {{tdShowVM.todo.location.zipcode}}</p>

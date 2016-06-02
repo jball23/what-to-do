@@ -2,6 +2,24 @@
 
   <div class="sort-bar">
     <input type="text" class="search-todos" placeholder="Search What To Do" data-ng-model="tdIndexVM.filter_on" />
+    <select class="add-cost add-select" data-ng-model="tdIndexVM.filter_on">
+      <option value="" disabled selected>Cost</option>
+      <option data-ng-value="Free" >FREE</option>
+      <option data-ng-value="Under 20">Under $20</option>
+      <option data-ng-value="$20 - $50">$20 - $50</option>
+      <option data-ng-value="$50 - $100">$50 - $100</option>
+      <option data-ng-value="Over $100">Over $100</option>
+    </select>
+    <select class="add-family add-select" data-ng-model="tdIndexVM.filter_on">
+      <option value="" disabled selected>Kid Friendly?</option>
+      <option data-ng-value="true">Great For Kids</option>
+      <option data-ng-value="false">Not So Much</option>
+    </select>
+    <select class="add-outdoor add-select"  data-ng-model="tdIndexVM.filter_on">
+      <option value="" disabled selected>Indoor / Outdoor?</option>
+      <option data-ng-value="false">Indoor</option>
+      <option data-ng-value="true">Outdoor</option>
+    </select>
   </div>
 
   <div data-ng-repeat="todo in tdIndexVM.todos | filter: tdIndexVM.filter_on">
@@ -9,14 +27,35 @@
       <div class="todo-title-body">
         <h2><a data-ui-sref="todoShow(todo)">{{todo.title}}</a></h2>
         <p>{{todo.body}}</p>
-        <p><a data-ui-sref="todoShow(todo)">{{todo.comments.length}} Comments</a></p>
+        <div class="todo-index-comments">
+          <img src="../images/comment-icon.jpg" alt="comments" />
+          <a data-ui-sref="todoShow(todo)">{{todo.comments.length}} Comments</a>
+        </div>
       </div>
+
       <div class="todo-index-info">
-        <table>
-          <tr><p>{{todo.familyFriendly}}</p></tr>
-          <tr><p>${{todo.cost}}</p></tr>
-        </table>
+        <div class="todo-index-cost">
+          <img src="../images/money-icon.jpg" alt="cost" />
+          <p>{{todo.cost}}</p>
+        </div>
+        <div class="todo-index-family" data-ng-if="todo.familyFriendly == true">
+          <img src="../images/family-icon.jpg" alt="family friendly" />
+          <p>Family Friendly</p>
+        </div>
+        <div class="todo-index-family" data-ng-if="todo.familyFriendly == false">
+          <img src="../images/no-family-icon.jpg" alt="not family friendly" />
+          <p>No Children</p>
+        </div>
+        <div class="todo-index-outdoor" data-ng-if="todo.outdoor == true">
+          <img src="../images/outdoor-icon.jpg" alt="outdoor" />
+          <p>Outdoor</p>
+        </div>
+        <div class="todo-index-outdoor" data-ng-if="todo.outdoor == !true">
+          <img src="../images/indoor-icon.jpg" alt="indoor" />
+          <p>Indoor</p>
+        </div>
       </div>
+
     </div>
   </div>
 

@@ -1,7 +1,6 @@
 <div class="add-todo">
   <div>
     <input type="text" class="add-title add-input" placeholder="Enter a title for your idea" data-ng-model="tdNewVM.newTodo.title" />
-    <input type="text" class="add-name add-input" placeholder="Enter your name" data-ng-model="tdNewVM.newTodo.author" />
   </div>
 
   <input type="text" class="add-address add-input" placeholder="Street Address" data-ng-model="tdNewVM.newTodo.location.address" />
@@ -9,18 +8,23 @@
   <input type="text" class="add-state add-input" placeholder="State" data-ng-model="tdNewVM.newTodo.location.state" />
   <input type="text" class="add-zip add-input" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" />
   <input type="text" class="add-idea add-input" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" />
-  <select class="add-cost add-select">
+  <select class="add-cost add-select" data-ng-model="tdNewVM.newTodo.cost">
     <option selected>Estimated Cost?</option>
-    <option data-ng-value="true" data-ng-model="tdNewVM.newTodo.free">FREE</option>
-    <option data-ng-model="tdNewVM.newTodo.cost">Under $20</option>
-    <option data-ng-model="tdNewVM.newTodo.cost">$20 - $50</option>
-    <option data-ng-model="tdNewVM.newTodo.cost">$50 - $100</option>
-    <option data-ng-model="tdNewVM.newTodo.cost">Over $100</option>
+    <option data-ng-value="Free" >FREE</option>
+    <option data-ng-value="Under 20">Under $20</option>
+    <option data-ng-value="$20 - $50">$20 - $50</option>
+    <option data-ng-value="$50 - $100">$50 - $100</option>
+    <option data-ng-value="Over $100">Over $100</option>
   </select>
-  <select class="add-family add-select">
-    <option selected>Family Friendly?</option>
-    <option data-ng-value="true" data-ng-model="tdNewVM.newTodo.familyFriendly"> </option>
-    <option data-ng-value="false" data-ng-model="tdNewVM.newTodo.familyFriendly"> </option>
+  <select class="add-family add-select" data-ng-model="tdNewVM.newTodo.familyFriendly">
+    <option selected>Child Friendly?</option>
+    <option data-ng-value="true">Great For Kids</option>
+    <option data-ng-value="false">Not So Much</option>
+  </select>
+  <select class="add-outdoor add-select"  data-ng-model="tdNewVM.newTodo.outdoor">
+    <option selected>Indoor / Outdoor?</option>
+    <option data-ng-value="false">Indoor</option>
+    <option data-ng-value="true">Outdoor</option>
   </select>
   <br>
 
