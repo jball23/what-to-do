@@ -243,3 +243,44 @@ h1 a {
   height: 400px;
   display: inline-block;
 }
+
+/**** ADD PAGE ****/
+
+.add-todo {
+	width: 50%;
+	margin: 30px auto;
+	text-align: center;
+}
+
+.add-todo input, select {
+	margin: 5px;
+}
+
+.add-idea {
+	width: 100%;
+	height: 100px;
+}
+
+.add-title {
+	width: 70%;
+}
+
+.add-name {
+	width: 20%;
+}
+
+.add-address {
+	width: 30%;
+}
+
+.add-city {
+	width: 23%;
+}
+
+.add-state {
+	width: 15%;
+}
+
+.add-zip {
+	width: 10%;
+}

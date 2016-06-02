@@ -3,7 +3,7 @@
     "title": "Hike a trail at Skyline Drive",
     "author": "Jordan Ballard",
     "body": "I took my wife and 3 sons on a beautiful hike at Big Meadows, which is off of Skyline Drive in the George Washington National Forest.  It cost about $15 to get into the park, and it was about a 30 minute drive to get to the meadows from the entrance of the park.  We were even able to bring a stroller on the trail, which was great because the hike was pretty long so when one of our sons got tired we could put him in the stoller for a bit.",
-    "cost": 15,
+    "cost": "15",
     "free": false,
     "location": {
       "address": "Skyline Dr. & Tanners Ridge Rd.",

@@ -9,7 +9,7 @@ var TodoSchema = {
   title: String,
   author: String,
   body: String,
-  cost: Number,
+  cost: String,
   free: Boolean,
   location: {
     address: String,

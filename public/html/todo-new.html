@@ -1,16 +1,29 @@
 <div class="add-todo">
-  <p><input type="text" placeholder="Enter a title for your idea" data-ng-model="tdNewVM.newTodo.title" /></p>
-  <p><input type="text" placeholder="Enter your name" data-ng-model="tdNewVM.newTodo.author" /></p>
-  <p><input type="text" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" /></p>
-  <p><input type="text" placeholder="How much should we expect to pay?" data-ng-model="tdNewVM.newTodo.cost" /></p>
-  <p>Is it family friendly?
-  <input type="radio" data-ng-value="true" data-ng-model="tdNewVM.newTodo.familyFriendly" /> Yes
-  <input type="radio" data-ng-value="false" data-ng-model="tdNewVM.newTodo.familyFriendly" /> No
-  </p>
-  <p><input type="text" placeholder="Address" data-ng-model="tdNewVM.newTodo.location.address" /></p>
-  <p><input type="text" placeholder="City" data-ng-model="tdNewVM.newTodo.location.city" /></p>
-  <p><input type="text" placeholder="State" data-ng-model="tdNewVM.newTodo.location.state" /></p>
-  <p><input type="text" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" /></p>
-  <p><button type="button" data-ng-click="tdNewVM.create()">Add Your Idea</button></p>
-  <p><button type="button" data-ng-click="tdNewVM.refresh()">Cancel</button></p>
+  <div>
+    <input type="text" class="add-title add-input" placeholder="Enter a title for your idea" data-ng-model="tdNewVM.newTodo.title" />
+    <input type="text" class="add-name add-input" placeholder="Enter your name" data-ng-model="tdNewVM.newTodo.author" />
+  </div>
+
+  <input type="text" class="add-address add-input" placeholder="Street Address" data-ng-model="tdNewVM.newTodo.location.address" />
+  <input type="text" class="add-city add-input" placeholder="City" data-ng-model="tdNewVM.newTodo.location.city" />
+  <input type="text" class="add-state add-input" placeholder="State" data-ng-model="tdNewVM.newTodo.location.state" />
+  <input type="text" class="add-zip add-input" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" />
+  <input type="text" class="add-idea add-input" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" />
+  <select class="add-cost add-select">
+    <option selected>Estimated Cost?</option>
+    <option data-ng-value="true" data-ng-model="tdNewVM.newTodo.free">FREE</option>
+    <option data-ng-model="tdNewVM.newTodo.cost">Under $20</option>
+    <option data-ng-model="tdNewVM.newTodo.cost">$20 - $50</option>
+    <option data-ng-model="tdNewVM.newTodo.cost">$50 - $100</option>
+    <option data-ng-model="tdNewVM.newTodo.cost">Over $100</option>
+  </select>
+  <select class="add-family add-select">
+    <option selected>Family Friendly?</option>
+    <option data-ng-value="true" data-ng-model="tdNewVM.newTodo.familyFriendly"> </option>
+    <option data-ng-value="false" data-ng-model="tdNewVM.newTodo.familyFriendly"> </option>
+  </select>
+  <br>
+
+  <button type="button" data-ng-click="tdNewVM.create()">Add Your Idea</button>
+  <button type="button" data-ng-click="tdNewVM.refresh()">Cancel</button>
 </div>
