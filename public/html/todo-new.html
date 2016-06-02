@@ -9,7 +9,7 @@
   <input type="text" class="add-zip add-input" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" />
   <input type="text" class="add-idea add-input" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" />
   <select class="add-cost add-select" data-ng-model="tdNewVM.newTodo.cost">
-    <option selected>Estimated Cost?</option>
+    <option value="" disabled selected>What's The Cost?</option>
     <option data-ng-value="Free" >FREE</option>
     <option data-ng-value="Under 20">Under $20</option>
     <option data-ng-value="$20 - $50">$20 - $50</option>
@@ -17,12 +17,12 @@
     <option data-ng-value="Over $100">Over $100</option>
   </select>
   <select class="add-family add-select" data-ng-model="tdNewVM.newTodo.familyFriendly">
-    <option selected>Child Friendly?</option>
+    <option value="" disabled selected>Kid Friendly?</option>
     <option data-ng-value="true">Great For Kids</option>
     <option data-ng-value="false">Not So Much</option>
   </select>
   <select class="add-outdoor add-select"  data-ng-model="tdNewVM.newTodo.outdoor">
-    <option selected>Indoor / Outdoor?</option>
+    <option value="" disabled selected>Indoor or Outdoor?</option>
     <option data-ng-value="false">Indoor</option>
     <option data-ng-value="true">Outdoor</option>
   </select>

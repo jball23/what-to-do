@@ -10,7 +10,6 @@
     .factory("Todo", todoFactoryFunc)
     .controller("todoIndexController", todoIndexCtrl)
     .controller("todoShowController", todoShowCtrl)
-    .controller("homeController", homeCtrl)
     .controller("todoNewController", todoNewCtrl)
 
     Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
@@ -20,8 +19,6 @@
       .state("home", {
         url: "/",
         templateUrl: "html/homepage.html",
-        controller: "homeController",
-        controllerAs: "homeVM"
       })
       .state("todoIndex", {
         url: "/todo",
@@ -50,10 +47,6 @@
         update: {method: "PATCH"}
       });
       return Todo;
-    }
-
-    function homeCtrl(){
-
     }
 
     todoIndexCtrl.$inject = ["Todo", "$state"];
@@ -135,6 +128,10 @@
         Todo.update($stateParams, vm.todo, function(response){
           $state.go("todoShow", response);
         });
+      };
+      vm.addComment = function(comment){
+        vm.todo.comments.push(comment);
+        vm.update()
       };
       vm.refresh = function(){
         $state.transitionTo($state.current, $stateParams, {

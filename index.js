@@ -27,6 +27,7 @@ app.delete("/api/todos/:title", function(req, res){
 });
 
 app.patch("/api/todos/:title", function(req, res){
+  console.log(req.body);
   Todo.findOneAndUpdate(req.params, req.body, {new: true}).then(function(todo){
     res.json(todo);
   });

@@ -211,6 +211,8 @@ input {
 
 .todo-title h1 {
   font-size: 2em;
+	font-weight: bold;
+	text-transform: capitalize;
   padding: 10px;
 }
 
@@ -219,8 +221,6 @@ h1 a {
 }
 
 .show-wrapper {
-  width: 100%;
-  display: inline-block;
   margin: 20px;
 }
 
@@ -237,9 +237,40 @@ h1 a {
 	line-height: 1.3em;
 }
 
+.edit-buttons {
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+}
+
+.edit-todo,
+.update-todo,
+.delete-todo,
+.cancel-todo {
+	border: 1px solid black;
+	margin: 20px 10px 10px 0px;
+	padding: 5px;
+	background-color: #36abfc;
+	font-size: 1em;
+	cursor: pointer;
+	color: white;
+}
+
+.comment-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
 .comments {
 	font-size: 1.2em;
 	margin-top: 20px;
+	line-height: 1.3em;
+}
+
+.comments span {
+	font-size: .9em;
+	font-style: italic;
+	font-weight: bold;
+	margin-left: 10px;
 }
 
 .todo-show-info {
