@@ -242,10 +242,10 @@ h1 a {
 	margin-bottom: 30px;
 }
 
-.edit-todo,
-.update-todo,
-.delete-todo,
-.cancel-todo {
+.edit-todo-button,
+.update-todo-button,
+.delete-todo-button,
+.cancel-todo-button {
 	border: 1px solid black;
 	margin: 20px 10px 10px 0px;
 	padding: 5px;
@@ -314,6 +314,26 @@ h1 a {
   height: 400px;
   display: inline-block;
 	text-align: right;
+}
+
+.add-comment {
+	margin-top: 30px;
+}
+
+.add-comment h1 {
+	font-size: 1.3em;
+	font-weight: bold;	
+}
+
+.add-comment-name,
+.add-comment-body {
+	display: block;
+	margin: 15px auto;
+}
+
+.add-comment-body {
+	height: 100px;
+	width: 75%;
 }
 
 /**** ADD PAGE ****/

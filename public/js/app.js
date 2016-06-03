@@ -87,8 +87,7 @@
           var markerInfo = response.data.results[0].formatted_address;
           myLat = response.data.results[0].geometry.location.lat;
           myLng = response.data.results[0].geometry.location.lng;
-          console.log(myLat);
-          console.log(myLng);
+          vm.initMap();
           var contentString = '<div>'+ markerInfo +'</div>';
           var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -108,7 +107,12 @@
       var myLng;
 
       vm.initMap = function(){
-        var myLatLng = {lat: 38.889931, lng: -77.009003};
+        var myLatLng
+        if (myLat) {
+          myLatLng = {lat: myLat, lng: myLng};
+        } else {
+          myLatLng = {lat: 38.889931, lng: -77.009003};
+        }
 
         var mapOptions = {
           zoom: 10,
@@ -131,7 +135,10 @@
       };
       vm.addComment = function(comment){
         vm.todo.comments.push(comment);
-        vm.update()
+        vm.update();
+      };
+      vm.deleteComment = function(comment){
+        vm.todo.comments.remove(comment);
       };
       vm.refresh = function(){
         $state.transitionTo($state.current, $stateParams, {

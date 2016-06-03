@@ -45,13 +45,13 @@
       <p><input type="text" data-ng-model="tdShowVM.todo.location.city" /></p>
       <p><input type="text" data-ng-model="tdShowVM.todo.location.state" /></p>
       <p><input type="text" data-ng-model="tdShowVM.todo.location.zipcode" /></p>
-      <button type="button" class="update-todo" data-ng-click="tdShowVM.update(); tdShowVM.refresh()">Update</button>
-      <button type="button" class="cancel-todo" data-ng-click="tdShowVM.refresh()">Cancel</button>
+      <button type="button" class="update-todo-button" data-ng-click="tdShowVM.update(); tdShowVM.refresh()">Update</button>
+      <button type="button" class="cancel-todo-button" data-ng-click="tdShowVM.refresh()">Cancel</button>
     </div>
 
     <div class="edit-buttons">
-      <button type="button" class="edit-todo" data-ng-click="showme=true">Edit</button>
-      <button type="button" class="delete-todo" data-ng-click="tdShowVM.delete()">Delete</button>
+      <button type="button" class="edit-todo-button" data-ng-click="showme=true">Edit</button>
+      <button type="button" class="delete-todo-button" data-ng-click="tdShowVM.delete()">Delete</button>
     </div>
 
     <div class="comment-title">
@@ -59,7 +59,13 @@
     </div>
     <div class="comments" data-ng-repeat="comment in tdShowVM.todo.comments">
       <p>{{comment.body}} <span>-{{comment.author}}</span></p>
-      <button type="button" class="edit-comment-button">Edit Comment</button>
+      <button type="button" class="edit-comment-button" data-ng-click="commentEdit=true">Edit Comment</button>
+      <div class="edit-comment" data-ng-show="commentEdit">
+        <p><input type="text" data-ng-model="comment.author" /></p>
+        <p><input type="text" data-ng-model="comment.body" /></p>
+        <button class="edit-comment-submit" data-ng-click="tdShowVM.update(); commentEdit=false">Update</button>
+        <button class="delete-comment-submit" data-ng-click="tdShowVM.deleteComment(comment); commentEdit=false">Delete</button>
+      </div>
       <hr>
     </div>
 
@@ -71,8 +77,8 @@
 
     <div class="add-comment">
       <h1>Add A Comment</h1>
-      <input type="text" data-ng-model="tdShowVM.newComment.author" placeholder="Your Name" />
-      <input type="text" data-ng-model="tdShowVM.newComment.body" placeholder="Your Comment" />
+      <input type="text" class="add-comment-name" data-ng-model="tdShowVM.newComment.author" placeholder="Your Name" />
+      <input type="text" class="add-comment-body" data-ng-model="tdShowVM.newComment.body" placeholder="Your Comment" />
       <p><button type="button" class="add-comment-button" data-ng-click="tdShowVM.addComment(tdShowVM.newComment); tdShowVM.refresh()">Add Comment</button></p>
     </div>
   </div>
