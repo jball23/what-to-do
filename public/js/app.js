@@ -78,7 +78,7 @@
       });
 
       function geoAddress(fullAddress){
-        var baseUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address=';
+        var baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
         $http({
           method: 'GET',
           url: baseUrl + fullAddress + "&sensor=false"
@@ -137,8 +137,10 @@
         vm.todo.comments.push(comment);
         vm.update();
       };
-      vm.deleteComment = function(comment){
-        vm.todo.comments.remove(comment);
+      vm.deleteComment = function($index){
+        vm.todo.comments.splice($index, 1)
+        console.log(vm.todo);
+        vm.update();
       };
       vm.refresh = function(){
         $state.transitionTo($state.current, $stateParams, {
