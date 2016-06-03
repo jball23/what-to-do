@@ -5,6 +5,7 @@ var app = express();
 
 var Todo = mongoose.model("Todo");
 
+app.set("port", process.env.PORT || 3001);
 app.use(parser.json({urlencoded: true}));
 app.use("/", express.static("public"));
 
@@ -43,6 +44,6 @@ app.get("/*", function(req, res){
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.listen(3001, function(){
-  console.log("Game on!");
+app.listen(app.get("port"), function(){
+  console.log("Find Something To Do!");
 });
