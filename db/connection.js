@@ -26,6 +26,10 @@ var TodoSchema = {
 mongoose.model("Todo", TodoSchema);
 mongoose.model("Comment", CommentSchema);
 
-mongoose.connect("mongodb://localhost/whattodo");
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URI);
+}else{
+  mongoose.connect("mongodb://localhost/whattodo");
+}
 
 module.exports = mongoose;
