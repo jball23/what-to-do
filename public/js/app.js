@@ -139,7 +139,6 @@
       };
       vm.deleteComment = function($index){
         vm.todo.comments.splice($index, 1)
-        console.log(vm.todo);
         vm.update();
       };
       vm.refresh = function(){
