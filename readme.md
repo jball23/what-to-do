@@ -1,33 +1,39 @@
 LOOKING FOR SOMETHING TO DO?
 
-![screenshot 2016-06-03 11 17 19](https://cloud.githubusercontent.com/assets/17213441/15783692/2a5ef6c4-297d-11e6-8e4e-e11c5de5f82b.png)
+![screenshot 2016-06-08 12 35 59](https://cloud.githubusercontent.com/assets/17213441/15902392/a9360af4-2d75-11e6-9fc7-ae7b0b45414b.png)
 
 
-Built using:
+Built using the MEAN stack with Mongoose as the ORM
 
-MongoDB (database)
-Mongoose (ORM)
-Express (Server / RESTful API)
-AngularJS (Front-end)
-NodeJS (runtime env)
+To Run App:
 
-To install:
+1.  Deployed on Heroku here:  https://something-to-do.herokuapp.com/
 
-Fork and clone the repo, cd into the root directory
-and run "npm install" from the command line to install dependencies.
+2.  Clone the repo, cd into what_to_do and run
 
-About:
+$ npm install
 
-This app is a conceptual project and just putting some skin on an idea
-I had to create an app that helps people find things to do in their area
-when they are fresh out of ideas.  It would be populated with user generated
-content and could pull in external API's like Google Places as an added feature.
+from the command line to install dependencies.  Make sure you have the latest version of node installed on your computer to ensure everything runs as program was intended to.
 
-What Would I Do Next?
+3.  From command line(any directory, doesn't matter), run
 
--Find relevant external API's to add in
--Add geo searching
--Add tags to posts
--User Auth
--Give each post a rating or upvotes
--Allow users to share on Facebook
+$ mongod
+
+and then you can minimize that window or tab and just let run in background.
+
+4.  From the what_to_do directory you cloned, run
+
+$ nodemon
+
+to start the server and to run in your browser locally.
+
+5.  When it's running properly, you should see "Find Something To Do!" in your terminal and your prompt should be hanging.
+
+6.  Visit localhost:3001 in your browser and find Something To Do!
+
+
+HOW TO USE:
+
+Right now the functionality is simple.  You can look for things to do by clicking on the Search menu item, you can add something to do by clicking on the Add menu item and filling out the form, you can comment on a Todo, you can edit both the comment and the todo, and you can delete the comment or todo.  When you Add something to do, the Google Maps API will geocode the address you entered and place a pin on the map for that address, and it will center the map on that location by default.  
+
+Right now there is no user authentication or accounts so all permissions are available to any user.  
