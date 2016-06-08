@@ -10,21 +10,15 @@ To Run App:
 1.  Deployed on Heroku here:  https://something-to-do.herokuapp.com/
 
 2.  Clone the repo, cd into what_to_do and run
-
 $ npm install
-
 from the command line to install dependencies.  Make sure you have the latest version of node installed on your computer to ensure everything runs as program was intended to.
 
 3.  From command line(any directory, doesn't matter), run
-
 $ mongod
-
 and then you can minimize that window or tab and just let run in background.
 
 4.  From the what_to_do directory you cloned, run
-
 $ nodemon
-
 to start the server and to run in your browser locally.
 
 5.  When it's running properly, you should see "Find Something To Do!" in your terminal and your prompt should be hanging.
