@@ -1,6 +1,6 @@
 <div class="add-todo">
   <div>
-    <input type="text" class="add-title add-input" placeholder="Enter a title for your idea" data-ng-model="tdNewVM.newTodo.title" />
+    <input type="text" class="add-title add-input" placeholder="Enter a Title" data-ng-model="tdNewVM.newTodo.title" />
   </div>
 
   <input type="text" class="add-address add-input" placeholder="Street Address" data-ng-model="tdNewVM.newTodo.location.address" />
@@ -17,7 +17,7 @@
     <option data-ng-value="Over_$100">Over $100</option>
   </select>
   <select class="add-family add-select" data-ng-model="tdNewVM.newTodo.familyFriendly">
-    <option value="" disabled selected>Kid Friendly?</option>
+    <option value="" disabled selected>Family Friendly?</option>
     <option data-ng-value="true">Great For Kids</option>
     <option data-ng-value="false">Not So Much</option>
   </select>
@@ -27,7 +27,8 @@
     <option data-ng-value="true">Outdoor</option>
   </select>
   <br>
+  <hr>
 
   <button type="button" data-ng-click="tdNewVM.create()">Add Your Idea</button>
-  <button type="button" data-ng-click="tdNewVM.refresh()">Cancel</button>
+  <button type="button" data-ui-sref="todoIndex">Cancel</button>
 </div>

@@ -42,7 +42,13 @@
       <p>Description</p>
       <p><textarea class="edit-body" data-ng-model="tdShowVM.todo.body"></textarea></p>
       <p>Cost</p>
-      <p><input type="text" class="edit-cost" data-ng-model="tdShowVM.todo.cost" /></p>
+      <select class="edit-cost edit-select" data-ng-model="tdShowVM.todo.cost">
+        <option value="" disabled selected>What's The Cost?</option>
+        <option data-ng-value="Under_20">Under $20</option>
+        <option data-ng-value="$20_$50">$20 - $50</option>
+        <option data-ng-value="$50_$100">$50 - $100</option>
+        <option data-ng-value="Over_$100">Over $100</option>
+      </select>
       <p>Address</p>
       <input type="text" class="edit-address" data-ng-model="tdShowVM.todo.location.address" />
       <input type="text" class="edit-city" data-ng-model="tdShowVM.todo.location.city" />
@@ -65,13 +71,12 @@
       <button type="button" class="edit-comment-button" data-ng-click="commentEdit=true">Edit Comment</button>
       <div class="edit-comment" data-ng-show="commentEdit">
         <p><input type="text" data-ng-model="comment.author" /></p>
-        <p><input type="text" data-ng-model="comment.body" /></p>
+        <p><textarea type="text" data-ng-model="comment.body"></textarea></p>
         <button type="button" class="update-comment-button" data-ng-click="tdShowVM.update($index)">Update Comment</button>
         <button type="button" class="delete-comment-button" data-ng-click="tdShowVM.deleteComment($index)">Delete Comment</button>
       </div>
       <hr>
     </div>
-
   </div>
 
   <div class="map-container">
@@ -81,7 +86,7 @@
     <div class="add-comment">
       <h1>Add A Comment</h1>
       <input type="text" class="add-comment-name" data-ng-model="tdShowVM.newComment.author" placeholder="Your Name" />
-      <input type="text" class="add-comment-body" data-ng-model="tdShowVM.newComment.body" placeholder="Your Comment" />
+      <textarea type="text" class="add-comment-body" data-ng-model="tdShowVM.newComment.body" placeholder="Your Comment"></textarea>
       <p><button type="button" class="add-comment-button" data-ng-click="tdShowVM.addComment(tdShowVM.newComment); tdShowVM.refresh()">Add Comment</button></p>
     </div>
   </div>
