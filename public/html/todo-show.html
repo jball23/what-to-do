@@ -66,8 +66,8 @@
       <div class="edit-comment" data-ng-show="commentEdit">
         <p><input type="text" data-ng-model="comment.author" /></p>
         <p><input type="text" data-ng-model="comment.body" /></p>
-        <p><button type="button" class="update-comment-button" data-ng-click="tdShowVM.update($index)">Update Comment</button></p>
-        <p><button type="button" class="delete-comment-button" data-ng-click="tdShowVM.deleteComment($index)">Delete Comment</button></p>
+        <button type="button" class="update-comment-button" data-ng-click="tdShowVM.update($index)">Update Comment</button>
+        <button type="button" class="delete-comment-button" data-ng-click="tdShowVM.deleteComment($index)">Delete Comment</button>
       </div>
       <hr>
     </div>

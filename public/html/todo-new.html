@@ -7,13 +7,13 @@
   <input type="text" class="add-city add-input" placeholder="City" data-ng-model="tdNewVM.newTodo.location.city" />
   <input type="text" class="add-state add-input" placeholder="State" data-ng-model="tdNewVM.newTodo.location.state" />
   <input type="text" class="add-zip add-input" placeholder="Zipcode" data-ng-model="tdNewVM.newTodo.location.zipcode" />
-  <input type="text" class="add-idea add-input" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body" />
+  <textarea type="text" class="add-idea add-input" placeholder="Tell us all about your idea..." data-ng-model="tdNewVM.newTodo.body"></textarea>
   <select class="add-cost add-select" data-ng-model="tdNewVM.newTodo.cost">
     <option value="" disabled selected>What's The Cost?</option>
     <option data-ng-value="Free" >FREE</option>
     <option data-ng-value="Under_20">Under $20</option>
-    <option data-ng-value="$20-$50">$20 - $50</option>
-    <option data-ng-value="$50-$100">$50 - $100</option>
+    <option data-ng-value="$20_$50">$20 - $50</option>
+    <option data-ng-value="$50_$100">$50 - $100</option>
     <option data-ng-value="Over_$100">Over $100</option>
   </select>
   <select class="add-family add-select" data-ng-model="tdNewVM.newTodo.familyFriendly">
